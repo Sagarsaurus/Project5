@@ -97,10 +97,8 @@ function signUp(){
 		var nameValuePairs = "First="+firstName+"&Last="+lastName+"&UserID="+userID+"&Password1="+password1+"&Email="+email;
 		xmlhttp.open("GET", "php/signInUpApp.php?"+nameValuePairs, false); //AJAX Set request
 		xmlhttp.send(); //AJAX Send request
-		//console.log(xmlhttp.responseText);
 	    if(xmlhttp.responseText.trim()=="duplicate"){
 			verified = false;	
-			console.log("here");
 			errorCount++;
 			errorString += tab + "The User ID you entered is already taken. Please enter another User ID. <br>";
 			document.getElementById("userid").style.color = 'red';
