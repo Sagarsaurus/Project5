@@ -1,3 +1,23 @@
+function signIn() {
+	var userID = document.forms["signInForm"]["UserIDLogin"].value;
+	var password = document.forms["signInForm"]["pass"].value;
+	var xmlhttp = new XMLHttpRequest();
+	var nameValuePairs = "UserID="+userID+"&pass="+password;
+	xmlhttp.open("GET", "php/signIn.php?"+nameValuePairs, false); //AJAX Set request
+	xmlhttp.send(); //AJAX Send request
+    if(xmlhttp.responseText.trim()=="failed"){
+		document.getElementById("useridlogin").style.color = 'red';
+		document.getElementById("passwordlogin").style.color = 'red';
+		document.getElementById("UserIDLogin").style.backgroundColor = 'yellow';	
+		document.getElementById("pass").style.backgroundColor = 'yellow';
+		document.getElementById("loginError").textContent = "Invalid Credentials";
+		document.getElementById("loginError").style.color='red';    	
+    }
+    else {
+    	window.location.assign("weather.html");
+    } 
+}
+
 
 function signUp(){
 	var verified = true;
@@ -95,7 +115,7 @@ function signUp(){
 		//Use AJAX to send data to server
 		var xmlhttp = new XMLHttpRequest();
 		var nameValuePairs = "First="+firstName+"&Last="+lastName+"&UserID="+userID+"&Password1="+password1+"&Email="+email;
-		xmlhttp.open("GET", "php/signInUpApp.php?"+nameValuePairs, false); //AJAX Set request
+		xmlhttp.open("GET", "php/signUp.php?"+nameValuePairs, false); //AJAX Set request
 		xmlhttp.send(); //AJAX Send request
 	    if(xmlhttp.responseText.trim()=="duplicate"){
 			verified = false;	
@@ -119,6 +139,7 @@ function signUp(){
 		message.style.color = 'green';
 		message.innerHTML = "Your application is complete. Thank you for signing up for our service.";
 		errorCount=0;
+		window.location.assign("weather.html");
 		// var form = document.getElementById("signUpForm");
 		// form.action = "php/signInUpApp.php";
 		// form.submit();

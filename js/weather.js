@@ -45,6 +45,6 @@ function showRSS(woeid)
 		}
 	}
 	  
-	xmlhttp.open("GET","php/ex20php.php?woeid="+woeid,false);
+	xmlhttp.open("GET","php/weather.php?woeid="+woeid,false);
 	xmlhttp.send();
 }

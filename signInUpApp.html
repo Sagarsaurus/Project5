@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Three Box Layout </title>
+		<title> Home Page </title>
 		<link rel="stylesheet" type="text/css" href="css/signInUpAppStyles.css" />
 		<script src="js/signInUpApp.js"></script>
 	</head>
@@ -15,11 +15,9 @@
 				<button onclick="location.href='home.html'">Home</input>
 			</ul>
 		</div>
-		<div id="main"> </div>
-		<div id="left"> </div>
-		<div id="right"> </div>
-		
+		<div id="main"> 
 		<div id="signUp">
+			<h1>Please sign up if you haven't!</h1>
 			<form id="signUpForm" name="signUpForm" method="POST">
 				Please Enter The following Information:<br>
 				<span id="firstName"> *First: </span>
@@ -41,15 +39,14 @@
 				<input type="text" id="Email" name="Email" size="50" value="Please Enter an Email Address"><br>
 				<br> Please select a city:<br>
 				<select>
-					<option value="Atlanta">Atlanta</option>
-					<option value="Chicago">Chicago</option>
-					<option value="Dallas">Dallas</option>
-					<option value="Detroit">Detroit</option>
-					<option value="Houston">Houston</option>
-					<option value="Los Angeles">Los Angeles</option>
-					<option value="Philadelphia">Philadelphia</option>
-					<option value="Pittsburgh">Pittsburgh</option>
-					<option value="San Francisco">San Francisco</option>
+					<option value="2357024">Atlanta</option>
+					<option value="2379574">Chicago</option>
+					<option value="2388929">Dallas</option>
+					<option value="12590119">Houston</option>
+					<option value="2459115">New York</option>
+					<option value="2471217">Philadelphia</option>
+					<option value="2473224">Pittsburgh</option>
+					<option value="2487956">San Francisco</option>
 				</select><br><br>
 				Choose a color:<br>
 				<input type="radio" name="color" value="red" checked>Red</input><br>
@@ -68,5 +65,19 @@
 
 			</form>
 		</div>
+		<div id="signIn">
+			<h1>Please login if you already have an account:</h1>
+			<form id="signInForm" name="signInForm" method="POST">
+				<span id="useridlogin">*UserID:</span>
+				<input type="text" id="UserIDLogin" name="UserIDLogin"><br>
+				<span id="passwordlogin">*Password:</span>
+				<input type="password" id="pass" name="pass"> (Your password must be at least 8 characters long)<br>
+				<span id="loginError">&nbsp;</span><br>
+				<button type="button" onclick="signIn();">Sign In</button>
+			</form>
+		</div>	
+		</div>
+		<div id="left"> </div>
+		<div id="right"> </div>
 	</body>
 </html>
