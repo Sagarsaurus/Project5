@@ -4,18 +4,18 @@
     <link href="css/ex20styles.css" type="text/css" rel="stylesheet" />
     <script src="js/weather.js"></script>   
 </head>
-<body>
-
+<body onload="setSelected()">
   	<form>
-	    <select onchange="showRSS(this.value)">
-	      <option value="">Select a City</option>
-	      <option value="2357024">Atlanta</option>
-	      <option value="12590119">Houston</option>
-	      <option value="2459115">New York</option>
-	      <option value="2391279">Denver</option>
-	      <option value="2490383">Seattle</option>
-	      <option value="2458833">New Orleans</option>
-	    </select>
+	    <select id="cities" onchange="showRSS(this.value)">
+			<option value="2357024">Atlanta</option>
+			<option value="2379574">Chicago</option>
+			<option value="2388929">Dallas</option>
+			<option value="12590119">Houston</option>
+			<option value="2459115">New York</option>
+			<option value="2471217">Philadelphia</option>
+			<option value="2473224">Pittsburgh</option>
+			<option value="2487956">San Francisco</option>
+		</select>
   	</form>
 
 	<br>

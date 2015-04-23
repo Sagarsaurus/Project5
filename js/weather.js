@@ -1,3 +1,20 @@
+var userID = "";
+
+function setSelected() {
+	if(window.location.href.indexOf("userID")>-1) {
+		userID = location.search.split('userID=')[1];
+		var colorAndCity = new XMLHttpRequest();
+		colorAndCity.open("GET","php/setup.php?userID="+userID,false);
+		colorAndCity.send();
+		var result = colorAndCity.responseText.trim();
+		result = result.split('#');
+		document.body.style.backgroundColor=result[0];
+		document.getElementById('cities').value = result[1];
+		showRSS(result[1]);
+
+	}
+}
+
 function showRSS(woeid)
 {
 	if (woeid.length==0){ 

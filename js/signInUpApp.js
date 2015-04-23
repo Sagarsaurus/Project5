@@ -114,7 +114,28 @@ function signUp(){
 		//Check Database for duplicate userid
 		//Use AJAX to send data to server
 		var xmlhttp = new XMLHttpRequest();
-		var nameValuePairs = "First="+firstName+"&Last="+lastName+"&UserID="+userID+"&Password1="+password1+"&Email="+email;
+		var color = "";
+		if(document.getElementById("redRadio").checked==true) {
+			color = "red";
+		}
+		else if(document.getElementById("blueRadio").checked==true) {
+			color = "blue";
+		}
+		else if(document.getElementById("greenRadio").checked==true) {
+			color = "green";
+		}
+		if(document.getElementById("yellowRadio").checked==true) {
+			color="yellow";
+		}
+		else {
+			color = "purple";
+		}
+
+		
+
+		var citySelect = document.getElementById("cities");
+		var city = citySelect.options[citySelect.selectedIndex].value;
+		var nameValuePairs = "First="+firstName+"&Last="+lastName+"&UserID="+userID+"&Password1="+password1+"&Email="+email+"&Color="+color+"&City="+city;
 		xmlhttp.open("GET", "php/signUp.php?"+nameValuePairs, false); //AJAX Set request
 		xmlhttp.send(); //AJAX Send request
 	    if(xmlhttp.responseText.trim()=="duplicate"){
@@ -139,7 +160,7 @@ function signUp(){
 		message.style.color = 'green';
 		message.innerHTML = "Your application is complete. Thank you for signing up for our service.";
 		errorCount=0;
-		window.location.assign("weather.html");
+		window.location.assign("weather.html?userID="+userID);
 		// var form = document.getElementById("signUpForm");
 		// form.action = "php/signInUpApp.php";
 		// form.submit();

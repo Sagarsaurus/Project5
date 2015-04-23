@@ -4,6 +4,8 @@
 	$userid = $_GET['UserID'];
 	$password = $_GET['Password1'];
 	$email = $_GET['Email'];
+	$color = $_GET['Color'];
+	$city = $_GET['City'];
 	$con=mysqli_connect("localhost","root","","users");
 	// Check connection
 	if (mysqli_connect_errno())
@@ -24,8 +26,8 @@
 		echo "duplicate";		
 	} else {
 		//If the userid is not found, then enter user information into table and show confirmation message
-		$sql="INSERT INTO users(FirstName, LastName, UserID, Password, Email)
-      	VALUES('$firstname', '$lastname', '$userid', '$password', '$email')"; 
+		$sql="INSERT INTO users(FirstName, LastName, UserID, Password, Email, Color, City)
+      	VALUES('$firstname', '$lastname', '$userid', '$password', '$email', '$color', '$city')"; 
 
       	if (!mysqli_query($con,$sql)){ die('Error: ' . mysqli_error($con)); }
 		echo "added";
