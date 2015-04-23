@@ -56,7 +56,6 @@ function showRSS(woeid)
 
 			}
 			var city = jsonObj.query.results.channel.location.city;
-			document.getElementById("cityImage").style.backgroundImage = "url('img/"+city+".jpg')";
 			var fiveDayForecast = document.getElementById("fiveDayForecast");
 			fiveDayForecast.style.visibility = "visible";
 		}
