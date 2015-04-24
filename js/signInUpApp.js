@@ -50,7 +50,7 @@ function signUp(){
 
 	//Verify User ID
 	var userID = document.forms["signUpForm"]["UserID"].value;
-	if(userID.length < 8){ 
+	if(userID.length < 8 ||userID.length > 15){ 
 		verified = false;
 		errorString += tab + "Please enter a Valid User ID. <br>";	
 		document.getElementById("userid").style.color = 'red';
@@ -68,9 +68,9 @@ function signUp(){
 	//Verify Password
 	var password1 = document.forms["signUpForm"]["Password1"].value;
 	var password2 = document.forms["signUpForm"]["Password2"].value;
-	if(password1.length < 8){ 
+	if(password1.length < 8 || password1.length > 15){ 
 		verified = false;
-		errorString += tab + "Your Password must be at least 8 characters long. <br>";	
+		errorString += tab + "Your Password must be between 8 and 15 characters long. <br>";	
 		document.getElementById("password1").style.color = 'red';
 		document.getElementById("Password1").style.backgroundColor = 'yellow';
 	} else if(password1!=password2){ 
@@ -177,31 +177,3 @@ function signUp(){
 
 
 }
-
-
-		// xmlhttp.onreadystatechange=function(){					//AJAX Callback function
-		// 	if (xmlhttp.readyState==4 && xmlhttp.status==200){
-		// 		console.log(xmlhttp.responseText);
-		// 	    if(xmlhttp.responseText=="duplicate user id"){
-		// 			verified = false;
-		// 			errorCount++;
-		// 			errorString += tab + "The User ID you entered is already taken. Please enter another User ID. <br>";
-		// 			document.getElementById("userid").style.color = 'red';
-		// 			document.getElementById("UserID").style.backgroundColor = 'yellow';	    	
-		// 	    } else if(xmlhttp.responseText=="record added"){
-		// 			document.getElementById("userid").style.color = 'black';
-		// 			document.getElementById("UserID").style.backgroundColor = 'white';		    	
-		// 	    }
-		//    	}
-		// }
-
-
-		// xmlhttp.open("POST", "php/signInUpApp.php",true);
-		// xmlhttp.send();
-		// xmlhttp.setRequestHeader("Content-type", "application/x-ww-form-urlencoded");
-		// xmlhttp.send("First=Robert&Last=Jones&UserID=RobJones&Password1=rrrrrrrr&Email=Rob.Jones@gmail.com");
-		// xmlhttp.send("First="+firstName+"&Last="+lastName+"&UserID="+userID+"&Password1="+password1+"&Email="+email+'"');
-
-		// console.log(nameValues);
-
-		// xmlhttp.open("GET", "php/signInUpApp.php?"+"First=Robert&Last=Jones&UserID=RobJones&Password1=rrrrrrrr&Email=Rob.Jones@gmail.com",true);
