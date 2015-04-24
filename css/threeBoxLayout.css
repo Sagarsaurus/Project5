@@ -6,10 +6,10 @@
 }
 
 #logo{
-	height:3vh;
+	height:7vh;
 	width: 30vw;
 	float: left;
-	background: black;
+	background: white;
 	margin-left: 3vw;
 	margin-top: 3vh;
 }
@@ -37,11 +37,26 @@
 
 #main{
 	height:90vh;
-	width: 94vw;
+	width: 93vw;
 	background: black;
 	margin-left: 3vw;
 	margin-right: 3vw;
 	clear: both;
+}
+
+#home{
+	height:50vh;
+	width: 93vw;
+	background: black;
+	margin-left: 3vw;
+	margin-right: 3vw;
+	clear: both;
+}
+
+#home img {
+	height: 90%;
+	margin-left: 30vw;
+	margin-top: 3vh;
 }
 
 #left{
@@ -51,6 +66,18 @@
 	background: black;
 	margin-left: 3vw;
 	margin-top: 3vh;
+}
+
+#left img{
+	margin-left: 15vw;
+	margin-top: 2vh;
+	height:90%;
+}
+
+#right img{
+	margin-left: 15vw;
+	margin-top: 2vh;
+	height:90%;
 }
 
 #right{
@@ -64,7 +91,7 @@
 
 #signUp{
 	position: absolute;
-	top: 10vh;
+	top: 12vh;
 	height:80vh;
 	left:30vw;
 	width: 43vw;
@@ -78,7 +105,7 @@
 
 #signIn {
 	position: absolute;
-	top: 10vh;
+	top: 12vh;
 	height:80vh;
 	left:30vw;
 	width: 43vw;

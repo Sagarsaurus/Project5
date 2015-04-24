@@ -167,11 +167,9 @@ function signUp(){
 	if(!verified){
 		message.style.color = 'red';		
 		message.innerHTML = "Your application has the following errors:  <br> " + errorString;
-		errorCount=0;
 	} else {
 		message.style.color = 'green';
 		message.innerHTML = "Your application is complete. Thank you for signing up for our service.";
-		errorCount=0;
 		window.location.assign("weather.html?userID="+userID);
 	}
 
