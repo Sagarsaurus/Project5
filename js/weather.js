@@ -30,32 +30,32 @@ function showRSS(woeid)
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200){
 		    // window.jsonObj = JSON.parse(xmlhttp.responseText);
-		    var jsonObj = JSON.parse(xmlhttp.responseText);
-		    forecast = jsonObj.query.results.channel.item.forecast;	 
-		    for(i=0; i<forecast.length; i++){
-				document.getElementById("day"+i).innerHTML= "<p class=day>" + forecast[i].day + "</p>" +
-															"<p class=date>" + forecast[i].date + "</p>" + 
-															"<p class=hi>" + "Hi " + forecast[i].high + "&deg; F" +  "</p>" + 
-															"<p class=lo>" + "Lo " + forecast[i].low + "&deg; F" + "</p>" + 
-															"<p class=text>" + forecast[i].text + "</p>";
+		    var result = JSON.parse(xmlhttp.responseText);
+		    forecastData = result.query.results.channel.item.forecast;	 
+		    for(i=0; i<forecastData.length; i++){
+				document.getElementById("day"+i).innerHTML= "<p class=day>" + forecastData[i].day + "</p>" +
+															"<p class=date>" + forecastData[i].date + "</p>" + 
+															"<p class=hi>" + "High " + forecastData[i].high + "&deg; F" +  "</p>" + 
+															"<p class=lo>" + "Low " + forecastData[i].low + "&deg; F" + "</p>" + 
+															"<p class=text>" + forecastData[i].text + "</p>";
 			
 				var day = "day"+i;
 				var box = document.getElementById(day);		
-				if(forecast[i].text == 'Sunny'){
+				if(forecastData[i].text == 'Sunny'){
 					box.style.width = '20%';
 					box.style.backgroundImage = "url('img/sunny.gif')";
-				} else if(forecast[i].text == 'Partly Cloudy'){
+				} else if(forecastData[i].text == 'Partly Cloudy'){
 					box.style.width = '20%';
 					box.style.backgroundImage = "url('img/partlyCloudy.gif')";
-				} else if(forecast[i].text == 'Mostly Sunny'){
+				} else if(forecastData[i].text == 'Mostly Sunny'){
 					box.style.width = '20%';
 					box.style.backgroundImage = "url('img/mostlySunny.gif')";
 				} else {
-					box.style.backgroundImage = "none";
+					box.style.backgroundColor = "white";
 				}
 
 			}
-			var city = jsonObj.query.results.channel.location.city;
+			var city = result.query.results.channel.location.city;
 			var fiveDayForecast = document.getElementById("fiveDayForecast");
 			fiveDayForecast.style.visibility = "visible";
 		}
