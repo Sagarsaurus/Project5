@@ -35,35 +35,43 @@ function showRSS(woeid)
 
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState==4 && xmlhttp.status==200){
-		    // window.jsonObj = JSON.parse(xmlhttp.responseText);
 		    var result = JSON.parse(xmlhttp.responseText);
-		    forecastData = result.query.results.channel.item.forecast;	 
+		    forecastData = result.query.results.channel.item.forecast;
+		    //assign values to individual cells one at a time
+		    toUpdate = "<tr>";	 
 		    for(i=0; i<forecastData.length; i++){
-				document.getElementById("day"+i).innerHTML= "<p class=day>" + forecastData[i].day + "</p>" +
-															"<p class=date>" + forecastData[i].date + "</p>" + 
-															"<p class=hi>" + "High " + forecastData[i].high + "&deg; F" +  "</p>" + 
-															"<p class=lo>" + "Low " + forecastData[i].low + "&deg; F" + "</p>" + 
-															"<p class=text>" + forecastData[i].text + "</p>";
-			
-				var day = "day"+i;
-				var box = document.getElementById(day);		
-				if(forecastData[i].text == 'Sunny'){
-					box.style.width = '20%';
-					box.style.backgroundImage = "url('img/sunny.gif')";
-				} else if(forecastData[i].text == 'Partly Cloudy'){
-					box.style.width = '20%';
-					box.style.backgroundImage = "url('img/partlyCloudy.gif')";
-				} else if(forecastData[i].text == 'Mostly Sunny'){
-					box.style.width = '20%';
-					box.style.backgroundImage = "url('img/mostlySunny.gif')";
-				} else {
-					box.style.backgroundColor = "white";
+		    	if(forecastData[i].text=='Sunny') {
+					toUpdate+= "<td background='img/sunny.gif'> <p class=day>" + forecastData[i].day + "</p>" +
+								"<p class=date>" + forecastData[i].date + "</p>" + 
+								"<p class=hi>" + "High " + forecastData[i].high + "&deg; F" +  "</p>" + 
+								"<p class=lo>" + "Low " + forecastData[i].low + "&deg; F" + "</p>" + 
+								"<p class=text>" + forecastData[i].text + "</p> </td>";
+		    	}
+				else if(forecastData[i].text=='Partly Cloudy') {
+					toUpdate+= "<td background='img/partlyCloudy.gif'> <p class=day>" + forecastData[i].day + "</p>" +
+								"<p class=date>" + forecastData[i].date + "</p>" + 
+								"<p class=hi>" + "High " + forecastData[i].high + "&deg; F" +  "</p>" + 
+								"<p class=lo>" + "Low " + forecastData[i].low + "&deg; F" + "</p>" + 
+								"<p class=text>" + forecastData[i].text + "</p> </td>";					
 				}
-
+				else if(forecastData[i].text=='Mostly Sunny') {
+					toUpdate+= "<td background='img/mostlySunny.gif'> <p class=day>" + forecastData[i].day + "</p>" +
+								"<p class=date>" + forecastData[i].date + "</p>" + 
+								"<p class=hi>" + "High " + forecastData[i].high + "&deg; F" +  "</p>" + 
+								"<p class=lo>" + "Low " + forecastData[i].low + "&deg; F" + "</p>" + 
+								"<p class=text>" + forecastData[i].text + "</p> </td>";					
+				}
+				else {
+					toUpdate+= "<td> <p class=day>" + forecastData[i].day + "</p>" +
+								"<p class=date>" + forecastData[i].date + "</p>" + 
+								"<p class=hi>" + "High " + forecastData[i].high + "&deg; F" +  "</p>" + 
+								"<p class=lo>" + "Low " + forecastData[i].low + "&deg; F" + "</p>" + 
+								"<p class=text>" + forecastData[i].text + "</p> </td>";					
+				}
 			}
-			var city = result.query.results.channel.location.city;
-			var fiveDayForecast = document.getElementById("fiveDayForecast");
-			fiveDayForecast.style.visibility = "visible";
+			toUpdate+="</tr>";
+			weatherTable = document.getElementById('weatherTable');
+			weatherTable.innerHTML=toUpdate;
 		}
 	}
 	  
