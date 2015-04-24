@@ -41,7 +41,6 @@ $time = mysqli_query($con,$sql);
 echo $color->fetch_object()->color.'#'.$city->fetch_object()->city.'#'.$name->fetch_object()->name.'#'.$time->fetch_object()->firstTime;
 
 
-//echo $color.'#'.$city;       
 if (!mysqli_query($con,$sql)){ die('Error: ' . mysqli_error($con)); }
 
 mysqli_close($con);

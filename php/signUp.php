@@ -34,10 +34,5 @@
 	}
 
 	mysqli_close($con);
-
-      // while($row = mysqli_fetch_array($result)){
-      //   echo $row['FirstName'] . " -- " . $row['LastName'] . " -- " . $row['UserID'] . " -- " . $row['Password'] . " -- " . $row['Email'] . " -- " . $row['PID'] ;
-      // }
-
 ?>
 
