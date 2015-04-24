@@ -19,6 +19,12 @@
 
     if (mysqli_num_rows($result)>0) {
         //If the userid is found, then show error message
+        $sql = "UPDATE users 
+            SET FirstTime=0
+            WHERE (UserID='$userid'
+            AND Password='$pass')";
+
+        $result = mysqli_query($con,$sql);
         echo "success";       
     } else {
         if (!mysqli_query($con,$sql)){ die('Error: ' . mysqli_error($con)); }

@@ -10,6 +10,12 @@ function setSelected() {
 		result = result.split('#');
 		document.body.style.backgroundColor=result[0];
 		document.getElementById('cities').value = result[1];
+		if(result[3]=='1') {
+			document.getElementById('message').innerHTML="Welcome "+result[2]+'. Here is your weather forecast!';
+		}
+		else {
+			document.getElementById('message').innerHTML="Welcome back "+result[2]+'!  Thank you for coming back! Here is your weather forecast!';
+		}
 		showRSS(result[1]);
 
 	}

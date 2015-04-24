@@ -26,8 +26,8 @@
 		echo "duplicate";		
 	} else {
 		//If the userid is not found, then enter user information into table and show confirmation message
-		$sql="INSERT INTO users(FirstName, LastName, UserID, Password, Email, Color, City)
-      	VALUES('$firstname', '$lastname', '$userid', '$password', '$email', '$color', '$city')"; 
+		$sql="INSERT INTO users(FirstName, LastName, UserID, Password, Email, Color, City, FirstTime)
+      	VALUES('$firstname', '$lastname', '$userid', '$password', '$email', '$color', '$city', 1)"; 
 
       	if (!mysqli_query($con,$sql)){ die('Error: ' . mysqli_error($con)); }
 		echo "added";
