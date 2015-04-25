@@ -62,7 +62,7 @@ function showRSS(woeid)
 								"<p class=text>" + forecastData[i].text + "</p> </td>";					
 				}
 				else {
-					toUpdate+= "<td> <p class=day>" + forecastData[i].day + "</p>" +
+					toUpdate+= "<td bgcolor='white'> <p class=day>" + forecastData[i].day + "</p>" +
 								"<p class=date>" + forecastData[i].date + "</p>" + 
 								"<p class=hi>" + "High " + forecastData[i].high + "&deg; F" +  "</p>" + 
 								"<p class=lo>" + "Low " + forecastData[i].low + "&deg; F" + "</p>" + 
